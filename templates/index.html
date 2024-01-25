@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafik Kaza Bilgileri</title>
+</head>
+<body>
+    
+    <h1>Trafik Kaza Bilgileri</h1>
+    <form method="get" action="{{ url_for('ana_sayfa') }}">
+        <label for="sehir">Şehir:</label>
+        <input type="text" name="sehir" id="sehir" value="{{ request.args.get('sehir', '') }}">
+        <button type="submit">Filtrele</button>
+    </form>
+    {% if data %}
+        {{ data | safe }}
+    {% else %}
+        <p>Veri bulunamadı.</p>
+    {% endif %}
+</body>
+</html>
